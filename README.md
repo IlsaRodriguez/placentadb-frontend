@@ -1,2 +1,2 @@
 # placentadb-frontend
-Front end aspects of the placenta database initiative, from the NIH CGRH section.
+Front-end design and implementation for the NIH CGRH Placenta Database Initiative
