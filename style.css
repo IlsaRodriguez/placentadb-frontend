@@ -1,0 +1,109 @@
+body{
+    background-color: white;
+    margin: 10%;
+    font-family: "Open Sans", sans-serif;
+    font-size: 18px;
+}
+
+.header{
+
+/* border-bottom-style: solid;
+box-shadow: 5px 5px 5px gray; */
+}
+
+.navbar a{
+    float: right;
+    text-align: center;
+    text-decoration: none;
+    padding: 16px;
+    color: #00a29d;
+}
+
+.navbar a:active{
+    color: black;
+}
+
+#title{
+    color: #00a29d;
+    font-weight: 600;
+    font-size: 40px;
+/*
+    border-bottom-style: ridge; */
+}
+
+.subheader{
+    font-size: 18px;
+}
+
+.welcome{
+    color: black;
+    background-color: rgb(255, 250, 225);
+   /* border: 2px solid; */
+    box-shadow: 1px 1px 10px gray;
+    border-width: 2px;
+    border-radius: 12px;
+    padding: 15px;
+    width: 900px;
+   /* height: 200px; */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.update{
+    color: black;
+    background-color: rgb(211, 229, 248);
+    box-shadow: 1px 1px 10px gray;
+  /*  border: 2px solid; */
+  border-radius: 15px;
+  padding: 15px;
+    width: 900px;
+   /* height: 125px;*/
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.dbFrame{
+    color: black;
+    background-color: white;
+    box-shadow: 1px 1px 5px gray;
+    border-radius: 5px;
+    padding: 15px;
+    width: 900px;
+    height: 450px;
+    font-size: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+}
+
+#dbPreview{
+    color: black;
+    background-color: rgb(229, 229, 229);
+    text-align: center;
+    border-radius: 5px;
+    padding: 15px;
+    width: 550px;
+    height: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    position: absolute;
+    top: 70px;
+    left: 300px;
+}
+
+.dbTrends{
+    color: black;
+    background-color: rgb(248, 236, 252);
+    box-shadow: 1px 1px 5px gray;
+    border-radius: 5px;
+    padding: 15px;
+    width: 900px;
+    font-size: 18px;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+.footer{
+    float: left;
+}
