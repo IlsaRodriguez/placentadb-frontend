@@ -40,3 +40,13 @@ The workflow "Server" is configured to automatically run `python server.py` on p
   - Configured workflow for port 5000
   - Added .gitignore for Python files
   - Created project documentation
+  
+- **2025-10-17**: Added Flask API backend with SQLite database
+  - Created placenta study database model with test data (10 studies)
+  - Implemented REST API endpoints:
+    - `/api/studies` - Search studies with filters (organism, data_type, extracted_molecule, superseries)
+    - `/api/stats` - Get database statistics
+  - Added JavaScript integration for frontend search form
+  - Implemented database trends visualization
+  - Fixed security vulnerability: blocked access to .db and .py files
+  - Fixed multi-molecule search to use OR logic correctly
