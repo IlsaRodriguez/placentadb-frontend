@@ -1,0 +1,4 @@
+geo_accession,title,organism,data_type,extracted_molecule,superseries,summary,publication_date
+GSE12345,Transcriptional profiling of human placenta,homo sapiens,bulk rna sequencing,total RNA,no,Gene expression patterns in human placental tissue,2024-03-15
+GSE23456,Single-cell RNA sequencing of placenta,homo sapiens,single cell rna sequencing,mRNA,yes,Single-cell analysis of human placenta,2024-05-20
+GSE34567,DNA methylation in mouse placenta,mus musculus,methylation sequencing,DNA,no,Methylation analysis of mouse placenta,2024-01-10

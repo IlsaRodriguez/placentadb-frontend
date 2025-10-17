@@ -106,16 +106,13 @@
      </form>
 
     <!-- Preview -->
-    <div id="dbPreview"> 
-        <p>Select search criteria and click Submit to search the database</p>
-    </div>
+    <div id="dbPreview"> Preview </div>
 
 </div> <br><br>
 
 <!-- Database Trends -->
  <div class="dbTrends">
     <h3>Database Trends</h3>
-    <div id="trends-content">Loading statistics...</div>
  </div> <br><br>
 
 <hr>
@@ -125,91 +122,6 @@
         <img src="/images/NIH_2013_logo_vertical.svg" height= "100" alt="National Institutes of Health logo with hyperlink" title="NIH">
     </a>
  </div>
-
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const form = document.querySelector('form');
-        const previewDiv = document.getElementById('dbPreview');
-        
-        form.addEventListener('submit', async function(e) {
-            e.preventDefault();
-            
-            const organism = document.getElementById('organism').value;
-            const dataType = document.getElementById('data type').value;
-            const superseries = document.querySelector('input[name="superseries"]:checked')?.value || '';
-            
-            const molecules = [];
-            if (document.getElementById('dna').checked) molecules.push('DNA');
-            if (document.getElementById('cdna').checked) molecules.push('cDNA');
-            if (document.getElementById('rna').checked) molecules.push('total RNA');
-            if (document.getElementById('mrna').checked) molecules.push('mRNA');
-            
-            const params = new URLSearchParams({
-                organism: organism,
-                data_type: dataType,
-                superseries: superseries
-            });
-            
-            if (molecules.length > 0) {
-                params.append('molecule', molecules.join(','));
-            }
-            
-            try {
-                previewDiv.innerHTML = '<p>Searching...</p>';
-                const response = await fetch(`/api/studies?${params}`);
-                const studies = await response.json();
-                
-                if (studies.length === 0) {
-                    previewDiv.innerHTML = '<p>No studies found matching your criteria.</p>';
-                } else {
-                    let html = `<div style="text-align: left; overflow-y: auto; max-height: 280px;">`;
-                    html += `<p><strong>Found ${studies.length} studies:</strong></p>`;
-                    studies.forEach(study => {
-                        html += `
-                            <div style="margin-bottom: 15px; padding: 10px; background: white; border-radius: 5px;">
-                                <strong>${study.geo_accession}</strong>: ${study.title}<br>
-                                <small><em>${study.organism} | ${study.data_type}</em></small><br>
-                                <small>${study.summary}</small>
-                            </div>
-                        `;
-                    });
-                    html += '</div>';
-                    previewDiv.innerHTML = html;
-                }
-            } catch (error) {
-                previewDiv.innerHTML = '<p>Error loading data. Please try again.</p>';
-                console.error('Error:', error);
-            }
-        });
-        
-        loadStats();
-    });
-    
-    async function loadStats() {
-        try {
-            const response = await fetch('/api/stats');
-            const stats = await response.json();
-            
-            let html = `<p><strong>Total Studies:</strong> ${stats.total_studies}</p>`;
-            html += '<p><strong>By Organism:</strong></p><ul>';
-            stats.by_organism.forEach(item => {
-                html += `<li>${item.organism}: ${item.count}</li>`;
-            });
-            html += '</ul>';
-            
-            html += '<p><strong>By Data Type:</strong></p><ul>';
-            stats.by_data_type.forEach(item => {
-                html += `<li>${item.data_type}: ${item.count}</li>`;
-            });
-            html += '</ul>';
-            
-            document.getElementById('trends-content').innerHTML = html;
-        } catch (error) {
-            document.getElementById('trends-content').innerHTML = '<p>Error loading statistics.</p>';
-            console.error('Error:', error);
-        }
-    }
-</script>
     
 </body>
 </html>
